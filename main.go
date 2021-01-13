@@ -1,8 +1,20 @@
 package main
 
-import "fmt"
+import (
+	//"fmt"
+	"github.com/gofiber/fiber/v2"
+)
 
-//Initial Commit
 func main() {
-	fmt.Println("Hello World!")
+	//Initial Commit
+	//fmt.Println("Hello World!")
+
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World 👋!")
+	})
+
+	app.Listen(":3030")
+
 }
